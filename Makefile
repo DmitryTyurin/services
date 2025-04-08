@@ -3,27 +3,29 @@ NETWORK = service_network
 SERVICES = airflow clickhouse-cluster kafka rabbitmq
 
 define SERVICE_INFO
-	@echo "Доступные сервисы:"
-	@echo "============================================"
-	@echo "Airflow"
-	@echo "http://localhost:8080"
+	@printf "Доступные сервисы:"
+	@printf "============================================"
+	@printf "Airflow"
+	@printf "http://localhost:8080"
 	@printf "\n"
-	@echo "ClickHouse Cluster (4 узла: 2 шарда, 2 реплики)"
-	@echo "http://localhost:8123/play"
-	@echo "clickhouse-node1:8123 | 9000"
-	@echo "clickhouse-node2:8124 | 9001"
-	@echo "clickhouse-node3:8125 | 9002"
-	@echo "clickhouse-node4:8126 | 9003"
+	@printf "ClickHouse Cluster (4 узла: 2 шарда, 2 реплики)"
+	@printf "http://localhost:8123/play"
+	@printf "clickhouse-node1:8123 | 9000"
+	@printf "clickhouse-node2:8124 | 9001"
+	@printf "clickhouse-node3:8125 | 9002"
+	@printf "clickhouse-node4:8126 | 9003"
 	@printf "\n"
-	@echo "Kafka с веб-интерфейсом Kafdrop"
-	@echo "http://localhost:9010"
+	@printf "Kafka с веб-интерфейсом Kafdrop"
+	@printf "http://localhost:9010"
 	@printf "\n"
-	@echo "RabbitMQ"
-	@echo "http://localhost:15672"
-	@echo "============================================"
+	@printf "RabbitMQ"
+	@printf "http://localhost:15672"
+	@printf "============================================"
 endef
 
 .PHONY: all up down build ensure-network clean-network $(SERVICES) docker-all-rm
+
+export COMPOSE_BAKE=false
 
 # Создать сеть, если её нет
 ensure-network:
