@@ -126,6 +126,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+rabbitmq/.env
 .env
 .venv
 env/
