@@ -1,10 +1,5 @@
-include .env
-export $(shell sed 's/=.*//' .env)
-
-load_env:
-    export $(cat .env | xargs)
-
-# Папки с сервисами
+# Настройки окружения
+NETWORK = service_network
 SERVICES = airflow clickhouse-cluster kafka rabbitmq
 
 define SERVICE_INFO
@@ -28,11 +23,7 @@ define SERVICE_INFO
 	@echo "============================================"
 endef
 
-NETWORK ?= $(LOCAL_NETWORK)
-
-export COMPOSE_BAKE=false
-
-.PHONY: all up down build ensure-network $(SERVICES)
+.PHONY: all up down build ensure-network clean-network $(SERVICES) docker-all-rm
 
 # Создать сеть, если её нет
 ensure-network:
@@ -48,7 +39,7 @@ clean-network:
 	@docker network rm $(NETWORK) 2>/dev/null || true
 
 # Запуск всех сервисов с билдом
-all: ensure-network build show-info
+all: ensure-network build
 
 # Остановка всех сервисов
 down:
@@ -59,28 +50,27 @@ down:
 	done
 
 # Запуск всех сервисов с билдом
-build: ensure-network load_env
-		@echo "Сборка и запуск всех сервисов..."
-		@for service in $(SERVICES); do \
-			echo "Сборка и запуск $$service..."; \
-			(cd $$service && docker compose up -d --build); \
-		done
-		$(SERVICE_INFO)
+build: ensure-network
+	@echo "Сборка и запуск всех сервисов..."
+	@for service in $(SERVICES); do \
+		echo "Сборка и запуск $$service..."; \
+		(cd $$service && LOCAL_NETWORK=$(NETWORK) docker compose up -d --build); \
+	done
+	$(SERVICE_INFO)
 
 # Запуск всех сервисов без билда
-up:	ensure-network load_env
-		@echo "Запуск всех сервисов..."
-		@for service in $(SERVICES); do \
-			echo "Запуск $$service..."; \
-			(cd $$service && docker compose up -d); \
-		done
-
-		$(SERVICE_INFO)
+up: ensure-network
+	@echo "Запуск всех сервисов..."
+	@for service in $(SERVICES); do \
+		echo "Запуск $$service..."; \
+		(cd $$service && LOCAL_NETWORK=$(NETWORK) docker compose up -d); \
+	done
+	$(SERVICE_INFO)
 
 # Правила для отдельных сервисов
-$(addprefix build-,$(SERVICES)): build-%: ensure-network load_env
+$(addprefix build-,$(SERVICES)): build-%: ensure-network
 	@echo "Сборка и запуск $*..."
-	@(cd $* && docker compose up -d --build)
+	@(cd $* && LOCAL_NETWORK=$(NETWORK) docker compose up -d --build)
 	$(SERVICE_INFO)
 
 # Правила для остановки отдельных сервисов
@@ -89,12 +79,12 @@ $(addprefix down-,$(SERVICES)): down-%:
 	@(cd $* && docker compose down)
 
 # Правила для запуска отдельных сервисов без билда
-$(addprefix up-,$(SERVICES)): up-%: ensure-network load_env
+$(addprefix up-,$(SERVICES)): up-%: ensure-network
 	@echo "Запуск $*..."
-	@(cd $* && docker compose up -d)
+	@(cd $* && LOCAL_NETWORK=$(NETWORK) docker compose up -d)
 	$(SERVICE_INFO)
 
-
+# Полная очистка всех docker-объектов
 docker-all-rm:
 	@echo "Единое удаление контейнеров, образов и томов..."
 	@for service in $(SERVICES); do \
