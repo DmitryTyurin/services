@@ -6,7 +6,19 @@
 
 #### Все контейнеры созданы в одной сети.
 
-## Все сервисы
+### Инициализация
+Создаем .env файл. Вставляем свой логин / пароль для локальной разработки.
+Логин / пароль универсальный -> устанавливается для входа во все сервисы
+```shell
+cp .env.example .env
+```
+
+## Запуск сервисов ⬇
+
+<div aligin='left' id="all_services">
+<details>
+<summary align="left"> <strong>🔶 Все сервисы</strong></summary>
+
 ### Запуск (со сборкой) всех сервисов
 ```shell
 make build
@@ -26,10 +38,20 @@ make down
 ```shell
 make docker-all-rm
 ```
+</details>
+</div>
+<br>
 
+<div aligin='left' id="one_services">
+<details>
+<summary align="left"> <strong>🔷 Отдельные запуски сервисов</strong></summary>
 
-## Отдельные запуски сервисов
-## AIRFLOW
+<br>
+
+<div aligin='left' id="Airflow">
+<details>
+<summary align="left"> <strong>Airflow</strong></summary>
+
 ### Запуск (со сборкой) 
 ```shell
 make build-airflow 
@@ -45,7 +67,16 @@ make up-airflow
 make down-airflow
 ```
 
-## CLICKHOUSE CLUSTER
+</details>
+</div>
+
+
+<br>
+
+<div aligin='left' id="ClickHouse_Cluster">
+<details>
+<summary align="left"> <strong>ClickHouse Cluster</strong></summary>
+
 ### Запуск (со сборкой) 
 ```shell
 make build-clickhouse-cluster 
@@ -60,6 +91,16 @@ make up-clickhouse-cluster
 ```shell
 make down-clickhouse-cluster
 ```
+
+</details>
+</div>
+
+
+<br>
+
+<div aligin='left' id="Kafka">
+<details>
+<summary align="left"> <strong>Kafka</strong></summary>
 
 ## KAFKA
 ### Запуск (со сборкой) 
@@ -77,6 +118,16 @@ make up-kafka
 make down-kafka
 ```
 
+</details>
+</div>
+
+
+<br>
+
+<div aligin='left' id="RabbitMQ">
+<details>
+<summary align="left"> <strong>RabbitMQ</strong></summary>
+
 ## RABBITMQ
 ### Запуск (со сборкой) 
 ```shell
@@ -92,3 +143,8 @@ make up-rabbitmq
 ```shell
 make down-rabbitmq
 ```
+</details>
+</div>
+
+</details>
+</div>
