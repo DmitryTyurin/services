@@ -36,10 +36,7 @@ make up
 make down
 ```
 
-### Единое удаление containers, images, volumes (очистка памяти Docker)
-```shell
-make docker-all-rm
-```
+
 </details>
 </div>
 <br>
@@ -149,3 +146,10 @@ make down-rabbitmq
 
 </details>
 </div>
+
+<br>
+
+#### Единое удаление containers, images, volumes (очистка памяти Docker)
+```shell
+make docker-all-rm
+```
