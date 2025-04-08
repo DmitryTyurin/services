@@ -128,7 +128,6 @@ make down-kafka
 <details>
 <summary align="left"> <strong>RabbitMQ</strong></summary>
 
-## RABBITMQ
 ### Запуск (со сборкой) 
 ```shell
 make build-rabbitmq 
