@@ -6,8 +6,8 @@ services:
       - "5672:5672"  # Порт для AMQP (основной протокол RabbitMQ)
       - "15672:15672"  # Порт для веб-интерфейса управления
     environment:
-      RABBITMQ_DEFAULT_USER: ${USER}
-      RABBITMQ_DEFAULT_PASS: ${PASSWORD}
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: password
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     networks:

@@ -1,24 +1,34 @@
+include .env
+export $(shell sed 's/=.*//' .env)
+
+load_env:
+    export $(cat .env | xargs)
+
+# Папки с сервисами
 SERVICES = airflow clickhouse-cluster kafka rabbitmq
 
 define SERVICE_INFO
 	@echo "Доступные сервисы:"
 	@echo "============================================"
 	@echo "Airflow"
-	@echo "		http://localhost:8080"
+	@echo "http://localhost:8080"
+	@printf "\n"
 	@echo "ClickHouse Cluster (4 узла: 2 шарда, 2 реплики)"
-	@echo "		http://localhost:8123/play"
-	@echo "		clickhouse-node1:8123 | 9000"
-	@echo "  	clickhouse-node2:8124 | 9001"
-	@echo "  	clickhouse-node3:8125 | 9002"
-	@echo "  	clickhouse-node4:8126 | 9003"
+	@echo "http://localhost:8123/play"
+	@echo "clickhouse-node1:8123 | 9000"
+	@echo "clickhouse-node2:8124 | 9001"
+	@echo "clickhouse-node3:8125 | 9002"
+	@echo "clickhouse-node4:8126 | 9003"
+	@printf "\n"
 	@echo "Kafka с веб-интерфейсом Kafdrop"
-	@echo "		http://localhost:9010"
+	@echo "http://localhost:9010"
+	@printf "\n"
 	@echo "RabbitMQ"
-	@echo "		http://localhost:15672"
+	@echo "http://localhost:15672"
 	@echo "============================================"
 endef
 
-NETWORK = service_network
+NETWORK ?= $(LOCAL_NETWORK)
 
 export COMPOSE_BAKE=false
 
@@ -49,7 +59,7 @@ down:
 	done
 
 # Запуск всех сервисов с билдом
-build: ensure-network
+build: ensure-network load_env
 		@echo "Сборка и запуск всех сервисов..."
 		@for service in $(SERVICES); do \
 			echo "Сборка и запуск $$service..."; \
@@ -58,7 +68,7 @@ build: ensure-network
 		$(SERVICE_INFO)
 
 # Запуск всех сервисов без билда
-up:	ensure-network
+up:	ensure-network load_env
 		@echo "Запуск всех сервисов..."
 		@for service in $(SERVICES); do \
 			echo "Запуск $$service..."; \
@@ -68,7 +78,7 @@ up:	ensure-network
 		$(SERVICE_INFO)
 
 # Правила для отдельных сервисов
-$(addprefix build-,$(SERVICES)): build-%: ensure-network
+$(addprefix build-,$(SERVICES)): build-%: ensure-network load_env
 	@echo "Сборка и запуск $*..."
 	@(cd $* && docker compose up -d --build)
 	$(SERVICE_INFO)
@@ -79,7 +89,7 @@ $(addprefix down-,$(SERVICES)): down-%:
 	@(cd $* && docker compose down)
 
 # Правила для запуска отдельных сервисов без билда
-$(addprefix up-,$(SERVICES)): up-%: ensure-network
+$(addprefix up-,$(SERVICES)): up-%: ensure-network load_env
 	@echo "Запуск $*..."
 	@(cd $* && docker compose up -d)
 	$(SERVICE_INFO)
