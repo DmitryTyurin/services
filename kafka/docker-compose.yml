@@ -7,7 +7,7 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2182
     networks:
-      - local_network
+      - default
 
   kafka:
     image: confluentinc/cp-kafka:7.3.0
@@ -24,7 +24,7 @@ services:
     depends_on:
       - zookeeper
     networks:
-      - local_network
+      - default
 
   kafdrop:
     image: obsidiandynamics/kafdrop
@@ -39,8 +39,9 @@ services:
     depends_on:
       - kafka
     networks:
-      - local_network
+      - default
 
 networks:
-  local_network:
+  default:
+    name: ${LOCAL_NETWORK}
     external: true
