@@ -101,6 +101,7 @@ make down-clickhouse-cluster
 <details>
 <summary align="left"> <strong>Kafka</strong></summary>
 
+
 ### Запуск (со сборкой) 
 ```shell
 make build-kafka 
