@@ -4,14 +4,9 @@
 - Kafka c веб-интерфейс Kafdrop | http://localhost:9010
 - RabbitMQ | http://localhost:15672
 
-### Инициализация
-Создаем .env файл. Локальная сеть по-умолчанию service_network.
-<br>
 
-```shell
-cp .env.example .env
-```
-<br>
+
+
 
 #### Все контейнеры созданы в одной сети.
 
