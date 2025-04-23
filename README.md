@@ -140,6 +140,30 @@ make down-rabbitmq
 </details>
 </div>
 
+
+<br>
+
+<div aligin='left' id="Elasticsearch ">
+<details>
+<summary align="left"> <strong>Elasticsearch </strong></summary>
+
+### Запуск (со сборкой) 
+```shell
+make build-elasticsearch 
+```
+
+### Запуск (без сборки)
+```shell
+make up-elasticsearch
+```
+
+### Остановка
+```shell
+make down-elasticsearch
+```
+</details>
+</div>
+
 </details>
 </div>
 
