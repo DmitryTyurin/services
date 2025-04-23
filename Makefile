@@ -23,6 +23,9 @@ define SERVICE_INFO
 	@echo "RabbitMQ"
 	@echo "admin | password"
 	@echo "http://localhost:15672"
+	@printf "\n"
+	@echo "Elasticsearch (Kibana)"
+	@echo "http://localhost:9200"
 	@echo "============================================"
 endef
 
