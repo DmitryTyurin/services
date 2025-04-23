@@ -3,7 +3,7 @@
 - ClickHouse Cluster (4 узла: 2 шарда, 2 реплики) | http://localhost:8123/play 
 - Kafka c веб-интерфейс Kafdrop | http://localhost:9010
 - RabbitMQ | http://localhost:15672
-- Elasticsearch c веб-интерфейс Kibana | http://localhost:9200
+- Elasticsearch c веб-интерфейс Kibana | http://localhost:5601
 
 
 
