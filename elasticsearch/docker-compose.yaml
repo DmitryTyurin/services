@@ -4,8 +4,8 @@ services:
     container_name: elasticsearch
     environment:
       - discovery.type=single-node
-      - bootstrap.memory_lock=true
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+      - xpack.security.enabled=false # Отключаем аутентификацию для разработки
     volumes:
       - es_data:/usr/share/elasticsearch/data
     ports:
