@@ -29,6 +29,7 @@ define SERVICE_INFO
 	@echo "============================================"
 endef
 
+
 .PHONY: all up down build ensure-network clean-network $(SERVICES) docker-all-rm
 
 export COMPOSE_BAKE=false
