@@ -25,7 +25,7 @@ define SERVICE_INFO
 	@echo "http://localhost:15672"
 	@printf "\n"
 	@echo "Elasticsearch (Kibana)"
-	@echo "http://localhost:9200"
+	@echo "http://localhost:5601"
 	@echo "============================================"
 endef
 
