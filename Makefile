@@ -1,6 +1,6 @@
 # Настройки окружения
 NETWORK = service_network
-SERVICES = airflow clickhouse-cluster kafka rabbitmq elasticsearch
+SERVICES = airflow clickhouse-cluster kafka rabbitmq elasticsearch dbt
 
 define SERVICE_INFO
 	@echo "Доступные сервисы:"

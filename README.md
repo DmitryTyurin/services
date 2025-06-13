@@ -168,8 +168,33 @@ make down-elasticsearch
 </details>
 </div>
 
+<br>
+
+<div aligin='left' id="DBT">
+<details>
+<summary align="left"> <strong>DBT </strong></summary>
+
+### Запуск (со сборкой) 
+```shell
+make build-dbt
+```
+
+### Запуск (без сборки)
+```shell
+make up-dbt
+```
+
+### Остановка
+```shell
+make down-dbt
+```
 </details>
 </div>
+
+
+</details>
+</div>
+
 
 <br>
 
