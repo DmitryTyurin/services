@@ -10,9 +10,15 @@ services:
     ports:
       - "5435:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data  # Постоянное хранилище данных
-      - ./config/postgresql.conf:/etc/postgresql/postgresql.conf  # Кастомный конфиг
-    command: postgres -c config_file=/etc/postgresql/postgresql.conf  # Загрузка конфига
+      - postgres_data:/var/lib/postgresql/data
+      - ./logs/postgresql:/var/log/postgresql  # Создаем директорию для логов
+      - ./config/postgresql.conf:/etc/postgresql/postgresql.conf
+      - ./config/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
+    command: >
+      postgres 
+      -c config_file=/etc/postgresql/postgresql.conf 
+      -c hba_file=/var/lib/postgresql/data/pg_hba.conf
+      -c log_directory=/var/log/postgresql  # Явно указываем директорию для логов
     restart: unless-stopped
     networks:
       - default
