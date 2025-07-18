@@ -94,6 +94,29 @@ make down-clickhouse-cluster
 </details>
 </div>
 
+<br>
+
+<div aligin='left' id="Postgres">
+<details>
+<summary align="left"> <strong>Postgres</strong></summary>
+
+### Запуск (со сборкой) 
+```shell
+make build-postgres 
+```
+
+### Запуск (без сборки)
+```shell
+make up-postgres
+```
+
+### Остановка
+```shell
+make down-postgres
+```
+
+</details>
+</div>
 
 <br>
 
@@ -172,7 +195,7 @@ make down-elasticsearch
 
 <div aligin='left' id="Jupyter Notebook PySpark ">
 <details>
-<summary align="left"> <strong>PySpark</strong></summary>
+<summary align="left"> <strong>Jupyter Notebook with PySpark</strong></summary>
 
 ### Запуск (со сборкой) 
 ```shell
