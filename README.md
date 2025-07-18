@@ -170,6 +170,29 @@ make down-elasticsearch
 
 <br>
 
+<div aligin='left' id="Jupyter Notebook PySpark ">
+<details>
+<summary align="left"> <strong>PySpark</strong></summary>
+
+### Запуск (со сборкой) 
+```shell
+make build-pyspark-jupyter 
+```
+
+### Запуск (без сборки)
+```shell
+make up-pyspark-jupyter
+```
+
+### Остановка
+```shell
+make down-pyspark-jupyter
+```
+</details>
+</div>
+
+<br>
+
 
 </details>
 </div>

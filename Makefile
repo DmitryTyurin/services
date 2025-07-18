@@ -1,6 +1,6 @@
 # Настройки окружения
 NETWORK = service_network
-SERVICES = airflow clickhouse-cluster kafka rabbitmq elasticsearch
+SERVICES = airflow clickhouse-cluster kafka rabbitmq elasticsearch pyspark-jupyter
 
 define SERVICE_INFO
 	@echo "Доступные сервисы:"
@@ -26,6 +26,12 @@ define SERVICE_INFO
 	@printf "\n"
 	@echo "Elasticsearch (Kibana)"
 	@echo "http://localhost:5601"
+	@echo "Jupyter Notebook"
+	@echo "http://localhost:8888"
+	@echo "Spark Master UI"
+	@echo "http://localhost:8080"
+	@echo "Spark Application UI"
+	@echo "http://localhost:4040"
 	@echo "============================================"
 endef
 
