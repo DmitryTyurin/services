@@ -18,7 +18,7 @@ services:
       postgres 
       -c config_file=/etc/postgresql/postgresql.conf 
       -c hba_file=/var/lib/postgresql/data/pg_hba.conf
-      -c log_directory=/var/log/postgresql  # Явно указываем директорию для логов
+      -c log_directory=/var/log/postgresql
     restart: unless-stopped
     networks:
       - default
