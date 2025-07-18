@@ -13,4 +13,4 @@ RUN apt-get update && \
 COPY requirements.txt /tmp/
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-USER jovyan
+USER jovy

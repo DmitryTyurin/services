@@ -26,6 +26,7 @@ define SERVICE_INFO
 	@printf "\n"
 	@echo "Elasticsearch (Kibana)"
 	@echo "http://localhost:5601"
+	@printf "\n"
 	@echo "Jupyter Notebook"
 	@echo "http://localhost:8888"
 	@echo "Spark Master UI"
