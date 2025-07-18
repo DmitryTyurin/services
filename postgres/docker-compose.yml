@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_USER: admin              # Логин (можно оставить 'postgres')
       POSTGRES_PASSWORD: admin          # Пароль (замените!)
-      POSTGRES_DB: postgres           # Создаваемая БД при старте
+      POSTGRES_DB: postgres             # Создаваемая БД при старте
       PGDATA: /var/lib/postgresql/data/pgdata  # Путь к данным внутри контейнера
     ports:
       - "5435:5432"
