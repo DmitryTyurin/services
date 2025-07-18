@@ -34,6 +34,10 @@ services:
       - default
     restart: unless-stopped
 
+# Объявление сетей и volumes
+volumes:
+  postgres_data:  # Том для данных PostgreSQL
+  pgadmin_data:   # Том для данных PGAdmin
 
 networks:
   default:
