@@ -1,7 +1,7 @@
 services:
   spark:
     image: bitnami/spark:3.5
-    container_name: pyspark
+    container_name: spark
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
