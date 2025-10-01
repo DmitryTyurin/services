@@ -33,7 +33,7 @@ define SERVICE_INFO
 	@echo "Jupyter Notebook"
 	@echo "http://localhost:8888"
 	@echo "Spark Master UI"
-	@echo "http://localhost:8080"
+	@echo "http://localhost:8081"
 	@echo "Spark Application UI"
 	@echo "http://localhost:4040"
 	@printf "\n"
