@@ -1,6 +1,6 @@
 services:
   spark:
-    image: docker.io/bitnami/spark:latest
+    image: bitnamilegacy/spark:3.5
     container_name: spark
     environment:
       - SPARK_MODE=master
