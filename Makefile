@@ -1,6 +1,6 @@
 # Настройки окружения
 NETWORK = service_network
-SERVICES = airflow clickhouse-cluster postgres kafka rabbitmq elasticsearch spark-jupyter superset
+SERVICES = airflow clickhouse-cluster postgres kafka rabbitmq elasticsearch spark-jupyter bi-superset
 
 define SERVICE_INFO
 	@echo "Доступные сервисы:"

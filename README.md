@@ -227,17 +227,17 @@ make down-spark-jupyter
 
 ### Запуск (со сборкой) 
 ```shell
-make build-superset
+make build-bi-superset
 ```
 
 ### Запуск (без сборки)
 ```shell
-make up-superset
+make up-bi-superset
 ```
 
 ### Остановка
 ```shell
-make down-superset
+make down-bi-superset
 ```
 </details>
 </div>
