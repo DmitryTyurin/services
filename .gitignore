@@ -128,6 +128,7 @@ celerybeat.pid
 # Environments
 rabbitmq/.env
 .env
+.env-non-dev
 .venv
 env/
 venv/
