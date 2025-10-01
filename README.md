@@ -5,7 +5,7 @@
 - RabbitMQ | http://localhost:15672
 - Elasticsearch c веб-интерфейс Kibana | http://localhost:5601
 - Jupyter Notebook | http://localhost:8888
-- Spark Master UI | http://localhost:8080
+- Spark Master UI | http://localhost:8081
 - Spark Application UI | http://localhost:4040
 - Superset | http://localhost:8088
 
