@@ -1,6 +1,6 @@
 # Настройки окружения
 NETWORK = service_network
-SERVICES = airflow clickhouse-cluster postgres kafka rabbitmq elasticsearch spark-jupyter bi-superset
+SERVICES = airflow clickhouse-cluster postgres kafka rabbitmq elasticsearch spark-jupyter bi-superset minio
 
 define SERVICE_INFO
 	@echo "Доступные сервисы:"
@@ -39,6 +39,9 @@ define SERVICE_INFO
 	@printf "\n"
 	@echo "Superset"
 	@echo "http://localhost:8088"
+	@printf "\n"
+	@echo "Minio"
+	@echo "http://localhost:9001"
 	@echo "============================================"
 endef
 

@@ -8,6 +8,7 @@
 - Spark Master UI | http://localhost:8081
 - Spark Application UI | http://localhost:4040
 - Superset | http://localhost:8088
+- MinIO | http://localhost:9001
 
 
 
@@ -238,6 +239,29 @@ make up-bi-superset
 ### Остановка
 ```shell
 make down-bi-superset
+```
+</details>
+</div>
+
+<br>
+
+<div aligin='left' id="MinIO">
+<details>
+<summary align="left"> <strong>MinIO</strong></summary>
+
+### Запуск (со сборкой) 
+```shell
+make build-minio
+```
+
+### Запуск (без сборки)
+```shell
+make up-minio
+```
+
+### Остановка
+```shell
+make down-minio
 ```
 </details>
 </div>
