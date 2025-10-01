@@ -4,6 +4,10 @@
 - Kafka c веб-интерфейс Kafdrop | http://localhost:9010
 - RabbitMQ | http://localhost:15672
 - Elasticsearch c веб-интерфейс Kibana | http://localhost:5601
+- Jupyter Notebook | http://localhost:8888
+- Spark Master UI | http://localhost:8080
+- Spark Application UI | http://localhost:4040
+- Superset | http://localhost:8088
 
 
 
@@ -216,6 +220,29 @@ make down-pyspark-jupyter
 
 <br>
 
+
+<div aligin='left' id="Superset">
+<details>
+<summary align="left"> <strong>Superset</strong></summary>
+
+### Запуск (со сборкой) 
+```shell
+make build-superset
+```
+
+### Запуск (без сборки)
+```shell
+make up-superset
+```
+
+### Остановка
+```shell
+make down-superset
+```
+</details>
+</div>
+
+<br>
 
 </details>
 </div>
