@@ -203,17 +203,17 @@ make down-elasticsearch
 
 ### Запуск (со сборкой) 
 ```shell
-make build-pyspark-jupyter 
+make build-spark-jupyter
 ```
 
 ### Запуск (без сборки)
 ```shell
-make up-pyspark-jupyter
+make up-spark-jupyter
 ```
 
 ### Остановка
 ```shell
-make down-pyspark-jupyter
+make down-spark-jupyter
 ```
 </details>
 </div>
