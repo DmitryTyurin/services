@@ -1,6 +1,6 @@
 services:
   spark:
-    image: bitnami/spark:3.5
+    image: bitnami/spark:3.1.2-debian-10-r110
     container_name: spark
     environment:
       - SPARK_MODE=master
